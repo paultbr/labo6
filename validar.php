@@ -8,6 +8,7 @@ $username=$_POST['usuario'];
 $pass=$_POST['pass1'];
 
 
+
 /*----ADMINISTRADOR-----*/
 /*$sql2=mysql_query("SELECT * FROM tadministrador WHERE idadministrador ='$username'");*/
 $sql3=mysql_query("SELECT * FROM tusuario INNER JOIN tadministrador ON tusuario.idusuario = tadministrador.idusuario");
