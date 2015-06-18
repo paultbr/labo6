@@ -1482,6 +1482,13 @@ hr {
     left: 200px;
 
 }
+#boletines{
+	position: relative;
+	top: 200px;
+	bottom: ;
+	right: ;
+	left: 200px;
+}
 h1,h2,h4{
     text-align: center;
     font-family:forte;
