@@ -8,6 +8,6 @@ $fecha=$_POST["boletinFecha"];
 require("conexion.php");
 //$_grabar_sql=;
 mysql_query("INSERT INTO tboletin VALUES(NULL,'$tipo','$descripcion','$grado','$seccion','$fecha');") or die(mysql_error());
-echo "guardado con exito";
+echo "El boletin fue guardado correctamente";
 mysql_close($link);
  ?>

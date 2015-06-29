@@ -117,7 +117,9 @@
           <!--  <input class="btn btn-danger" type="submit" name="submit" value="Registrar" />-->
 <!--
         </form>
--->
+        </div> <!-- .hero-content -->
+      <!--</section> <!-- /Portfolio -->
+
    <!-- boletines
    ================================================== -->
    <section id="boletines">
@@ -140,10 +142,6 @@
             <form name="boletinestForm" id="boletinesForm" method="post" action="guardarBoleti.php">
 
             <fieldset>
-                                   
-                        
-                    
-
                   <div class="row">
                     <div class="four columns mob-whole">
                       <label for="BoletinTipo">Tipo de Boletin</label>
@@ -212,10 +210,5 @@
               
           </form> <!-- /boletinForm --> 
    </section>  <!-- /boletin-->
-
-    </div> <!-- .hero-content -->
-</section> <!-- /Portfolio -->
-
-
 </body>
 </html>
