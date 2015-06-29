@@ -76,9 +76,9 @@
 
    <!-- Hero
    =================================================== -->
-   <section id="hero">  
+   <section id="registrar">  
       
-   
+   <input type="submit" name="registrar" value="Registrar Nuevo Usuario">;
    </section> <!-- #hero -->
 
 
