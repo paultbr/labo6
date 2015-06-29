@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en"> <!--<![endif]-->
 <?php 
-    require("conexion.php");
+    require("conexionBD.php");
  ?>
 <head>
        <!--- Basic Page Needs
@@ -67,6 +67,10 @@
 
 <!-- Registrar
   ================================================== -->
+    <section id="registrar">  
+      
+   <input type="submit" name="registrar" value="Registrar Nuevo Usuario">;
+   </section>
 <!--<section id="registrar">
     <div class="row hero-content">
 
@@ -139,7 +143,7 @@
         
         <div id="boletines-form" class="twelve columns">
 
-            <form name="boletinestForm" id="boletinesForm" method="post" action="guardarBoleti.php">
+            <form name="boletinestForm" id="boletinesForm" method="post" action="guardarBoletin.php">
 
             <fieldset>
                   <div class="row">
