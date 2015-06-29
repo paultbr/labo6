@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js ie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<html class="no-js" lang="en"> <!--<![endif]-->
 <head>
        <!--- Basic Page Needs
     ================================================== -->
@@ -67,7 +64,7 @@
 
 <!-- Registrar
   ================================================== -->
-<section id="registrar">
+<!--<section id="registrar">
     <div class="row hero-content">
 
         <h2>Registrarce</h2>
@@ -112,12 +109,12 @@
                 <label><h3>Categoria de Cuenta</h3></label>
                 <input type="tex" name="categoria" class="form-control" placeholder="categoria" />
             </div>
-
+-->
             <!-- boton de registro -->
-            <input class="btn btn-danger" type="submit" name="submit" value="Registrar" />
-
+          <!--  <input class="btn btn-danger" type="submit" name="submit" value="Registrar" />-->
+<!--
         </form>
-
+-->
    <!-- boletines
    ================================================== -->
    <section id="boletines">
