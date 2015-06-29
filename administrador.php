@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en"> <!--<![endif]-->
+<?php 
+    require("conexion.php");
+ ?>
 <head>
        <!--- Basic Page Needs
     ================================================== -->
@@ -50,7 +53,7 @@
             <ul id="nav" class="nav">
                 <li class="current"><a class="smoothscroll" href="#registrar">Registrar</a> </li>
                 <li><a class="smoothscroll" href="#0">Agragar las cosas q hace el administrador.</a></li> <!-- /Works-->
-                <li><a class="smoothscroll" href="#boletines">Publicar Boletines</a></li><!-- /Boletines-->
+                <li><a class="smoothscroll" href="#boletines">Boletines</a></li><!-- /Boletines-->
                 <li><a class="smoothscroll" href="#2">,,,,,.</a></li><!-- /Sobre-->
                 <li><a class="smoothscroll" href="#3">,,,,,,</a></li><!-- /Contact-->
             </ul>
@@ -123,14 +126,9 @@
 
       <div class="twelve columns">
 
-           <h1>Publicar Boletines<span>.</span></h1>
+           <h1 style="#ff0000">Publicar Boletines<span>.</span></h1>
 
            <hr />
-
-           <p>Aqui usted podra publicar los boletines, asambleas y demas actividades de nuestro centro educativo.
-           Complete todos los campos. Gracias
-           </p>
-
         </div>
 
       </div>
@@ -139,52 +137,77 @@
         
         <div id="boletines-form" class="twelve columns">
 
-            <form name="boletinestForm" id="boletinesForm" method="post" action="">
+            <form name="boletinestForm" id="boletinesForm" method="post" action="guardarBoleti.php">
 
             <fieldset>
+                                   
+                        
+                    
 
                   <div class="row">
-
-                    <div class="six columns mob-whole">
-                      <label for="boletinesFname" ><span class="required"></span></label>                    
-                  <select name="BoletiTipo" name="BoletinTipo" style="border:solid 1px #ff0000;">
-                    <option value="C01">Boletin informativo</option>
-                    <option value="C02">Asamblea general</option>
-                    <option value="C03">Asamble especifica</option>
-                    <option value="C03">Faena</option>
-                  </select>
-
-                    <div class="six columns mob-whole"> 
-                      <label for="boletinesEmail"><span class="required"></span></label>                    
-                  <input name="boletinesEmail" type="text" id="boletinesEmail" placeholder="Seccion" value="" style="border:solid 1px #ff0000;"/>            
+                    <div class="four columns mob-whole">
+                      <label for="BoletinTipo">Tipo de Boletin</label>
+                      <select name="BoletinTipo" name="BoletinTipo" style="border:solid 1px #ff0000;">
+                          <option value="">----Tipo de boletin----</option>
+                          <option value="Boletin informativo">Boletin informativo</option>
+                          <option value="Asamblea general">Asamblea general</option>
+                          <option value="Dias festivos">Dias festivos</option>
+                          <option value="Faena">Faena</option>
+                        </select>
                     </div>
-                  </div>
-
-
-                  <div class="row">
-                    <div class="six columns mob-whole">  
-                      <label for="boletinesSubject"><span class="required"></span></label>                    
-                  <input name="boletinesSubject" type="text" id="boletinesSubject" placeholder="Maestro"  value="" style="border:solid 1px #ff0000;"/>      
-                    </div>
-                    <div class="six columns full-width"> 
-                      <label for="boletinesLname"><span class="required"></span></label>                    
-                  <input name="boletinesLname" type="text" id="boletinesLname" placeholder="Grado" value="" style="border:solid 1px #ff0000;" />             
-                    </div> 
-                  </div>
+                    <div class="four columns mob-whole">
+                      <label for="Cbgrado">Grado</label>
+                      <select name="CbGrado" id="CbGrado" style="border:solid 1px #ff0000;">
+                        <option value="">----grado----</option>
+                        <?php 
+                            $sql="SELECT idgrado FROM tgrado";
+                            $rec=mysql_query($sql);
+                            while ($row=mysql_fetch_array($rec)) {
+                              echo"<option value='".$row['idgrado']."'>";
+                              echo $row['idgrado'];
+                              echo "</option>";
+                            }
+                         ?>
+                      </select> 
+                    </div>  
+                    <div class=" four columns mob-whole">
+                      <label for="cbseccion">Seccion</label>
+                      <select name="cbSeccion" id="cbSeccion" style="border:solid 1px #ff0000;">
+                        <option value="">----seccion---</option>
+                        <?php 
+                            $sql="SELECT idseccion FROM tseccion";
+                            $rec=mysql_query($sql);
+                            while ($row=mysql_fetch_array($rec)) {
+                              echo"<option value='".$row['idseccion']."'>";
+                              echo $row['idseccion'];
+                              echo "</option>";
+                            }
+                         ?>
+                      </select>
+                    </div>  
+                    </div>  
+                  </div> 
 
                   <div class="row">
                     <div class="six columns">
-                       <label  for="boletinesMessage"><span class="required"></span></label>
-                       <textarea name="boletinesMessage"  id="boletinesMessage" placeholder="Descripcion" style="width:550px;height:100px;font-family:cursive;border:solid 2px #ff0000;" ></textarea>
+                      <label for="boletinFecha">Seleccione la Fecha e introduzca la hora :</label>
+                      <input type="datetime-local" name="boletinFecha" id="boletinFecha" style="border:solid 1px #ff0000;">
                     </div>
-                      
-                    
                   </div>
-                      <div class="row">
-                        <div class="six columns">
-                     <button class="submit full-width" style="background:#ff0000">Publicar</button>
+
+                  <div class="row">
+                    <div class="twelve columns">
+                      <label for="boletinDescipcion"></label>
+                      <textarea name="boletinDescripcion" id="boletinDescripcion" cols="120" rows="10" placeholder="Descripcion" style="border:solid 1px #ff0000;"></textarea>
+                    </div>
                   </div>
-                      </div>         
+
+                  <div class="row">
+                    <div class="twelve columns">
+                      <input type="submit" value="Publicar">
+                    </div>
+                  </div>  
+
             </fieldset>
               
           </form> <!-- /boletinForm --> 
@@ -195,3 +218,4 @@
 
 
 </body>
+</html>
