@@ -66,6 +66,70 @@
 
 <!--==================================================================================-->
 
+<<<<<<< HEAD
+=======
+<!-- Registrar
+  ================================================== -->
+    <section id="registrar">  
+      
+   <input type="submit" name="registrar" value="Registrar Nuevo Usuario">;
+   </section>
+<!--<section id="registrar">
+    <div class="row hero-content">
+
+        <h2>Registrarce</h2>
+        <form action="insertarNuevo.php" method="post">
+
+            <div class="form-group">
+                <label><h3>Nombres</h3></label>
+                <input type="text" name="realname" class="form-control" placeholder="Nombres" />
+            </div>
+
+            <div class="form-group">
+                <label><h3>Apellido Paterno</h3></label>
+                <input type="text" name="apellidop" class="form-control" placeholder="Apellido Paterno" />
+            </div>
+
+            <div>
+                <label><h3>Apellido Materno</h3></label>
+                <input type="text" name="apellidom" class="form-control" placeholder="Apellido Materno" />
+            </div>
+
+            <div>
+                <label><h3>Email</h3></label>
+                <input type="text" name="mail2" class="form-control" placeholder="Email" />
+            </div>
+
+            <div>
+                <label><h3>Usuario</h3></label>
+                <input type="text" name="usuario" class="form-control" placeholder="Usuario" />
+            </div>
+
+            <div>
+                <label><h3>Contraseña</h3></label>
+                <input type="password" name="pass" class="form-control" placeholder="Contraseña" />
+            </div>
+
+            <div>
+                <label><h3>Repita la Contraseña</h3></label>
+                <input type="password" name="rpass" class="form-control" placeholder="Contraseña" />
+            </div>
+
+            <div>
+                <label><h3>Categoria de Cuenta</h3></label>
+                <input type="tex" name="categoria" class="form-control" placeholder="categoria" />
+            </div>
+-->
+            <!-- boton de registro -->
+          <!--  <input class="btn btn-danger" type="submit" name="submit" value="Registrar" />-->
+<!--
+        </form>
+        </div> <!-- .hero-content -->
+      <!--</section> <!-- /Portfolio -->
+
+   <!-- boletines
+   ================================================== -->
+>>>>>>> c32c4f06e064dfd8abea8b6ef2c5ea075c46bcaf
    <section id="boletines">
 
     <div class="row section-head">
@@ -78,6 +142,7 @@
 
     <div class="row form-section">
         
+<<<<<<< HEAD
           <div class="twelve columns">
 
 
@@ -147,6 +212,78 @@
                             </div>  
 
                   </fieldset>
+=======
+        <div id="boletines-form" class="twelve columns">
+
+            <form name="boletinestForm" id="boletinesForm" method="post" action="guardarBoletin.php">
+
+            <fieldset>
+                  <div class="row">
+                    <div class="four columns mob-whole">
+                      <label for="BoletinTipo">Tipo de Boletin</label>
+                      <select name="BoletinTipo" name="BoletinTipo" style="border:solid 1px #ff0000;">
+                          <option value="">----Tipo de boletin----</option>
+                          <option value="Boletin informativo">Boletin informativo</option>
+                          <option value="Asamblea general">Asamblea general</option>
+                          <option value="Dias festivos">Dias festivos</option>
+                          <option value="Faena">Faena</option>
+                        </select>
+                    </div>
+                    <div class="four columns mob-whole">
+                      <label for="Cbgrado">Grado</label>
+                      <select name="CbGrado" id="CbGrado" style="border:solid 1px #ff0000;">
+                        <option value="">----grado----</option>
+                        <?php 
+                            $sql="SELECT idgrado FROM tgrado";
+                            $rec=mysql_query($sql);
+                            while ($row=mysql_fetch_array($rec)) {
+                              echo"<option value='".$row['idgrado']."'>";
+                              echo $row['idgrado'];
+                              echo "</option>";
+                            }
+                         ?>
+                      </select> 
+                    </div>  
+                    <div class=" four columns mob-whole">
+                      <label for="cbseccion">Seccion</label>
+                      <select name="cbSeccion" id="cbSeccion" style="border:solid 1px #ff0000;">
+                        <option value="">----seccion---</option>
+                        <?php 
+                            $sql="SELECT idseccion FROM tseccion";
+                            $rec=mysql_query($sql);
+                            while ($row=mysql_fetch_array($rec)) {
+                              echo"<option value='".$row['idseccion']."'>";
+                              echo $row['idseccion'];
+                              echo "</option>";
+                            }
+                         ?>
+                      </select>
+                    </div>  
+                    </div>  
+                  </div> 
+
+                  <div class="row">
+                    <div class="six columns">
+                      <label for="boletinFecha">Seleccione la Fecha e introduzca la hora :</label>
+                      <input type="datetime-local" name="boletinFecha" id="boletinFecha" style="border:solid 1px #ff0000;">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="twelve columns">
+                      <label for="boletinDescipcion"></label>
+                      <textarea name="boletinDescripcion" id="boletinDescripcion" cols="120" rows="10" placeholder="Descripcion" style="border:solid 1px #ff0000;"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="twelve columns">
+                      <input type="submit" value="Publicar">
+                    </div>
+                  </div>  
+
+            </fieldset>
+>>>>>>> c32c4f06e064dfd8abea8b6ef2c5ea075c46bcaf
               
               </form> <!-- /boletinForm --> 
           </div> 
