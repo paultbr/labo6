@@ -23,7 +23,7 @@
 
     <!-- Script
     =================================================== -->
-    <script src="js/modernizr.js" type="text/javascript">
+    <script type="text/javascript" src="js/ajax.js">
     </script>
 
     <!-- Favicons
@@ -69,60 +69,45 @@
    ================================================== -->
    <section id="asistencia">
 
-    <div class="row section-head">
-      <div class="twelve columns">
-           <h1 style="#ff0000">Registrar Asistencia<span>.</span></h1>
+        <div class="row section-head">
+          <div class="twelve columns">
+               <h1 style="#ff0000">Registrar Asistencia<span>.</span></h1>
 
-           <hr />
+               <hr />
+            </div>
         </div>
-      </div>
+        
+        <div class="row">
+              <?//php include ("conexion.php");?>
+              <?//php mysql_select_db($baseDatos);?>
+              <?php 
+                $sql="SELECT * from tgrado";
+                $res=mysql_query($sql);
+              ?>
 
-      <div class="row form-section">
-        <div id="boletines-form" class="twelve columns">
-          <form name="AsistenciaForm" id="AsistenciaForm" method="post" action="RegistrarAsistencia.php">
-            <fieldset>
-                <input name="fecha" type="text" id="fecha" value="<?php echo date("d/m/Y"); ?>" size="5" />
-                <legend> La fecha actual es:</legend>
+              <form name="form1" action="Registrar.php" method="post">
+                  <div class="four columns mob-whole">
+                      <div>
+                        Grado:
+                            <select name="Grado" id="Grado" onchange="from(document.form1.Grado.value,'seccion','grado.php')" >
+                                <option value="0">-----Grado-----</option>
+                                <?php while ($fila=mysql_fetch_array($res)){ ?>
+                                  <option value="<?php echo $fila['idgrado']?>"><?php echo $fila['idgrado']?></option>
+                                <?php }?>
+                            </select> 
+                      </div>
+                  </div>
+                  
+                  <div class="eight columns mob-whole">
+                      <div id="seccion">
+                        Seccion:
+                          <select name="" id="">
+                              <option value="">-----seccion----</option>
+                          </select>
+                      </div> 
+                  </div> 
 
-                <form action="RecuperarDatos.php" method="post">
-                    <div class="row">
-                    <div class="four columns mob-whole">
-                      <label for="cbGrado">Seleccione el grado:</label>
-                      <select name="" id="cbGrado">
-                        <option value="">----grado----</option>
-                            <?php 
-                                $sql="SELECT idgrado FROM tgrado";
-                                $rec=mysql_query($sql);
-                                while ($row=mysql_fetch_array($rec)) {
-                                  echo"<option value='".$row['idgrado']."'>";
-                                  echo $row['idgrado'];
-                                  echo "</option>";
-                                }
-                             ?>
-                      </select>
-                    </div>
-                    <div class="four columns mob-whole">
-                      <label for="cbSeccion">Seleccione la Seccion:</label>
-                      <select name="" id="cbSeccion">
-                        <option value="">----seccion---</option>
-                            <?php 
-                                $sql="SELECT idseccion FROM tseccion";
-                                $rec=mysql_query($sql);
-                                while ($row=mysql_fetch_array($rec)) {
-                                  echo"<option value='".$row['idseccion']."'>";
-                                  echo $row['idseccion'];
-                                  echo "</option>";
-                                }
-                             ?>
-                      </select>
-                    </div>
-                    <div class="four columns mob-whole">
-                      <label for="Listar"></label>
-                      <input type="submit" value="Listar">
-                    </div>
-                    
-                    </div>
-                      <label for="alumnos">LISTA DE ALUMNOS</label>
+                  <label for="alumnos">LISTA DE ALUMNOS</label>
                       <table WIDTH="100%" BORDER="1" BGCOLOR="#F7BE81" class="alumnos">
                         <tr>
                           <th>Codigo</th>
@@ -137,17 +122,18 @@
                         <?php 
                           include("RecuperarDatos.php");
                           $Con=new Recuperar();
-                          $Con->RD($_POST['idgrado'],$_POST['idseccion']);
+                          $Con->RD();
                          ?>
                       </div>
                       </table>
-                  </form>
-
                   <label for="Guardar"></label>
                   <input type="submit" value="Guardar">
-                  
-            </fieldset> 
-          </form> <!-- /AsistenciaForm --> 
+
+              </form>
+
+              
+        </div>
+
    </section>  <!-- /asistencia-->
 
 </body>

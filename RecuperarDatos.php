@@ -1,10 +1,10 @@
 <?php 
 	class Recuperar{
 		function RD(){
-			require("conexion.php");
-			$_grado=$_POST["grado"];
-			$_seccion=$_POST["seccion"];
-			$query="SELECT * FROM talumno WHERE idgrado='$_grado' AND idseccion='$_seccion'";
+			require("conexionBD.php");
+			//$_grado=$_POST["grado"];
+			//$_seccion=$_POST["seccion"];
+			$query="SELECT * FROM talumno";// WHERE idgrado='$g' AND idseccion='$s'";
 	          $consulta=mysql_query($query);
 	          while ($datos=mysql_fetch_array($consulta)) {
 	            echo "<tr><th>".$datos["idalumno"]."</th>";
