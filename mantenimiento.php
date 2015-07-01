@@ -51,10 +51,10 @@
             </a>
 
             <ul id="nav" class="nav">
-                <li class="current"><a class="smoothscroll" href="#registrar">Registrar</a> </li>
+                <li><a class="smoothscroll" href="#registrar">Registrar</a> </li>
                 <li><a class="smoothscroll" href="#0">Agragar las cosas q hace el administrador.</a></li> <!-- /Works-->
                 <li><a class="smoothscroll" href="#boletines">Publicar Boletines</a></li><!-- /Boletines-->
-                <li><a class="smoothscroll" href="#mantenimiento">Mantenimiento</a></li><!-- /Sobre-->
+                <li class="current"><a class="smoothscroll" href="#mantenimiento">Mantenimiento</a></li><!-- /Sobre-->
                 <li><a class="smoothscroll" href="#3">,,,,,,</a></li><!-- /Contact-->
             </ul>
 
@@ -89,47 +89,255 @@
     </div>
       
     <div class="row form-section">    
-      <div id="mantenimiento-form" class="twelve columns">
-            <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="">
+
+	    <div class="row">
+	        <div class="six columns mob-whole">
+	            <label for="BoletinTipo">Docente</label>
+	        </div>
+	    </div>
+		
+    <div class="twelve columns">
+      <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="registrarDocente.php">
             <fieldset>
               <!-- Primera fila -->
               <div class="row">
                 <div class="six columns mob-whole">
-                  <label for="BoletinTipo">Docente</label>
                   <button class="submit full-width" style="background:#ff0000">Registrar Docente</button>
                 </div>
+                
+              </div>
+            </fieldset>
+          </form> <!-- /mantenimientoForm --> 
+
+          <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="eliminarDocente.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
                 <div class="six columns mob-whole">
-                  <label for="BoletinTipo">Alumno</label>
-                    <button class="submit full-width" style="background:#ff0000">Registrar Alumno</button>
+                  <button class="submit full-width" style="background:#ff0000">Eliminar Docente</button>
                 </div>
               </div>
-              <!-- Fin de Primera fila -->
+            </fieldset>
+          </form> <!-- /mantenimientoForm --> 
+    </div>
 
-              <!-- Segunda fila -->
-                <div class="row">
-                  <div class="six columns full-width"> <!-- divide en columnas :P -->
-                    <button class="submit full-width" style="background:#ff0000">Eliminar Docente</button>
-                  </div> 
-                  <div class="six columns full-width">
-                     <button class="submit full-width" style="background:#ff0000">Eliminar Alumno</button>
-                  </div>
+		<form name="mantenimientoForm" id="mantenimientoForm" method="post" action="registrarDocente.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Registrar Docente</button>
                 </div>
-              <!-- Fin de Segunda fila -->
-              <!-- Tercera fila -->
-                <div class="row">
-                  <div class="six columns full-width">
-                    <label for="BoletinTipo">Apoderado</label>
-                     <button class="submit full-width" style="background:#ff0000">Registrar Padre o Apoderado</button>
-                  </div>
-                  <div class="six columns mob-whole">
-                    <label for="BoletinTipo">Administrador</label>
-                    <button class="submit full-width" style="background:#ff0000">Publicar Boletines</button>
-                  </div>
-                </div>         
-              <!-- Fin de Tercera fila -->
+                
+              </div>
+            </fieldset>
+          </form> <!-- /mantenimientoForm --> 
+
+          <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="eliminarDocente.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Eliminar Docente</button>
+                </div>
+              </div>
+            </fieldset>
+          </form> <!-- /mantenimientoForm --> 
+
+          <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="editarDocente.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Editar Docente</button>
+                </div>
+                
+              </div>
+            </fieldset>
+          </form> <!-- /mantenimientoForm --> 
+
+        <div class="row">
+	        <div class="six columns mob-whole">
+	            <label for="BoletinTipo">Apoderado</label>
+	        </div>
+	    </div>
+		  
+
+        <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="registrarApoderado.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Registrar Apoderado</button>
+                </div>
+                
+              </div>
             </fieldset>
               
           </form> <!-- /mantenimientoForm --> 
+
+          <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="eliminarApoderado.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Eliminar Apoderado</button>
+                </div>
+              </div>
+            </fieldset>
+          </form> <!-- /mantenimientoForm --> 
+
+          <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="editarApoderado.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Editar Apoderado</button>
+                </div>
+                
+              </div>
+            </fieldset>
+          </form> <!-- /mantenimientoForm --> 
+
+          <div class="row">
+	        <div class="six columns mob-whole">
+	            <label for="BoletinTipo">Alumno</label>
+	        </div>
+	    </div>
+		
+
+        <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="registrarAlumno.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Registrar Alumno</button>
+                </div>
+                
+              </div>
+            </fieldset>
+              
+          </form> <!-- /mantenimientoForm --> 
+
+          <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="eliminarAlumno.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Eliminar Alumno</button>
+                </div>
+              </div>
+            </fieldset>
+          </form> <!-- /mantenimientoForm --> 
+
+          <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="editarAlumno.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Editar Alumno</button>
+                </div>
+                
+              </div>
+            </fieldset>
+          </form> <!-- /mantenimientoForm --> 
+
+          <div class="row">
+	        <div class="six columns mob-whole">
+	            <label for="BoletinTipo">Auxiliar</label>
+	        </div>
+	    </div>
+		
+
+        <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="registrarAuxiliar.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Registrar Auxiliar</button>
+                </div>
+              </div>
+            </fieldset>
+              
+          </form> <!-- /mantenimientoForm --> 
+
+          <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="eliminarAuxiliar.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Eliminar Auxiliar</button>
+                </div>
+              </div>
+            </fieldset>
+          </form> <!-- /mantenimientoForm --> 
+
+          <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="editarAuxiliar.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Editar Auxiliar</button>
+                </div>
+              </div>
+            </fieldset>
+          </form> <!-- /mantenimientoForm --> 
+
+
+          <div class="row">
+	        <div class="six columns mob-whole">
+	            <label for="BoletinTipo">Administrador</label>
+	        </div>
+	    </div>
+		
+	    <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="administrador.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Publicar Boletines</button>
+                </div>
+              </div>
+            </fieldset>
+              
+          </form> <!-- /mantenimientoForm --> 
+        <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="registrarAdministrador.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Agregar Administrador</button>
+                </div>
+              </div>
+            </fieldset>
+              
+          </form> <!-- /mantenimientoForm --> 
+
+          <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="eliminarAdministrador.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Eliminar Administrador</button>
+                </div>
+              </div>
+            </fieldset>
+          </form> <!-- /mantenimientoForm --> 
+
+          <form name="mantenimientoForm" id="mantenimientoForm" method="post" action="editarAdministrador.php">
+            <fieldset>
+              <!-- Primera fila -->
+              <div class="row">
+                <div class="six columns mob-whole">
+                  <button class="submit full-width" style="background:#ff0000">Editar Administrador</button>
+                </div>
+              </div>
+            </fieldset>
+          </form> <!-- /mantenimientoForm --> 
+
+	</div>
+
+	
    </section>  <!-- /boletin-->
 
     </div> <!-- .hero-content -->
