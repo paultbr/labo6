@@ -1,6 +1,6 @@
 <?php
 
-$id=$_POST['dni']
+$id=$_POST['dni'];
 
 require("conexionBD.php");
 

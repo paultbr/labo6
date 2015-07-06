@@ -7,36 +7,57 @@ $apellidom=$_POST['apellidom'];
 $mail=$_POST['email'];
 $direccion=$_POST['direccion'];
 $telefono= $_POST['telefono'];
-
-
-
 require("conexionBD.php");
 
-$checkauxiliar=mysql_query("SELECT * FROM tauxiliar WHERE idauxiliar='$idauxiliar'");
+$checkauxiliar=mysql_query("SELECT * 
+                            FROM tauxiliar 
+                            WHERE idauxiliar='$idauxiliar'") or die(mysql_error());
 $check_auxiliar=mysql_num_rows($checkauxiliar);
 
     if($check_auxiliar>0){
-        echo ' <script language="javascript">alert("Atencion, ya existe una persona con este ususario designado para un usuario, verifique sus datos");</script> ';
+        echo '<script language="javascript">alert("MENSAJE: Usuario existente como administrador.");</script> ';
     }
     else
     {
-        //agregar nuevo usuario
-        mysql_query("INSERT INTO tusuario(password,tipo_usuario) VALUES('$password','AUXILIAR');")or die(mysql_error());        
-        //obtener el maximo valor de id usuario
-        $query="SELECT max(idusuario) as nroidusuario FROM tusuario ";
-        $consulta=mysql_query($query);
-        $datos=mysql_fetch_array($consulta);
-        $idusuario= "<tr><th>".$datos['nroidusuario']."</th>";
-        //echo "$idusuario";
-        //Agregar un nuevo auxiliar
+        $usuarios_validos=mysql_query("SELECT T2.idusuario1 as idusuario
+                                        FROM (SELECT tusuario.idusuario as idusuario1, tauxiliar.idusuario as idusuario2
+                                                FROM tusuario LEFT outer JOIN tauxiliar 
+                                                ON tusuario.idusuario = tauxiliar.idusuario 
+                                                WHERE tusuario.tipo_usuario = 'AUXILIAR') as T2
+                                        WHERE T2.idusuario2 IS NULL
+                                    ;")or die(mysql_error());
+        $existe_usuario=mysql_num_rows($usuarios_validos);
+        if ($existe_usuario>0) {//si existe algun usuario que pueda asociarse con el administrador, obtenemos su id y agregamos nuevo administrador.
+            $fila=mysql_fetch_array($usuarios_validos,MYSQL_BOTH);
+            $usuario = $fila["idusuario"];
+            mysql_query("INSERT INTO tauxiliar 
+                            VALUES('$idauxiliar','$usuario','$realname','$apellidop','$apellidom','$direccion','$telefono','$mail');");
+            echo '<script language="javascript">alert("MENSAJE, operacion exitosa, AUXILIAR agregado.");</script> ';
+        }
+        else // existe usuario del tipo administrador al que asociar, se debe crear un usuario.
+        {
+            //crear nuevo usuario
+            mysql_query("INSERT INTO tusuario VALUES(NULL,'$password','AUXILIAR');")or die("e rror aqui".mysql_error());
+            //
+            $usuarios_validos=mysql_query("SELECT T2.idusuario1 as idusuario
+                                            FROM (SELECT tusuario.idusuario as idusuario1, tadministrador.idusuario as idusuario2
+                                                    FROM tusuario LEFT outer JOIN auxiliar 
+                                                    ON tusuario.idusuario = tadministrador.idusuario 
+                                                    WHERE tusuario.tipo_usuario = 'ADMINISTRADOR') as T2
+                                            WHERE T2.idusuario2 IS NULL
+                                        ;")or die(mysql_error());
+            $existe_usuario=mysql_num_rows($usuarios_validos);
+            if ($existe_usuario>0) {//si existe algun usuario que pueda asociarse con el administrador, obtenemos su id y agregamos nuevo administrador.
+                $fila=mysql_fetch_array($usuarios_validos,MYSQL_BOTH);
+                $usuario = $fila["idusuario"];
+                mysql_query("INSERT INTO tadministrador 
+                                VALUES('$id','$usuario','$realname','$apellidop','$apellidom','$direccion','$telefono','$mail')");
+                echo '<script language="javascript">alert("MENSAJE: Operacion exitosa, administrador y usuario agregados.");</script> ';
+
+            }
+
+        }
         
-//        mysql_query("INSERT INTO tauxiliar VALUES('$idauxiliar','$idusuario','$realname','$apellidop','$apellidom','$direccion','$telefono','$mail');")or die(mysql_error());
-        //echo 'Se ha registrado con exito';
-        //echo ' <script language="javascript">alert("Usuario registrado con éxito");</script> ';
-        mysql_close($link);
     }
-
-
-
-
 ?>
+<a href="editarApoderado.php">Regresar</a>

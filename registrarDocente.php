@@ -134,7 +134,7 @@
 -->
             <div>
                 <label><h3>Fecha de inicio</h3></label>
-                <input type="datetime-local" name="boletinFecha" id="boletinFecha" style="border:solid 1px #ff0000;">
+                <input type="datetime-local" name="fecha_inicio" id="fecha_inicio" style="border:solid 1px #ff0000;">
             </div>
 
             <div>

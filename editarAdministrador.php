@@ -90,7 +90,7 @@
       
     <div class="row form-section">    
 
-        <form action="editarAdministrador.php" method="post">
+        <form action="actualizarAdministrador.php" method="post">
 
             <div class="form-group">
                 <label><h3>DNI</h3></label>

@@ -90,7 +90,7 @@
       
     <div class="row form-section">    
 
-        <form action="insertarAuxiliar.php" method="post">
+        <form action="insertarAuxiliar1.php" method="post">
 
             <div class="form-group">
                 <label><h3>DNI</h3></label>

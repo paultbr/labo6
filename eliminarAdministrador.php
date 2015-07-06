@@ -90,7 +90,7 @@
       
     <div class="row form-section">    
 
-        <form action="borrarAdministrador.php" method="post">
+        <form action="borrarAdministrador1.php" method="post">
 
             <div class="form-group">
                 <label><h3>DNI</h3></label>
